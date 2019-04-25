@@ -11,7 +11,9 @@ class RPS extends Component {
         }
     }
 
-
+    game = () => {
+        
+    }
 
     render () {
         return (

@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
+import './RPS.css';
 
 class RPS extends Component {
-    constructor (props) {
-        super (props);
+    constructor(props) {
+        super(props);
 
         this.state = {
             playerScore: 0,
             compScore: 0
-            
+
         }
     }
 
@@ -18,7 +19,7 @@ class RPS extends Component {
         if (playerChoice === 'r' && cchoice === 's') {
             this.setState((preState) => {
                 return {
-                    playerScore : preState.playerScore + 1
+                    playerScore: preState.playerScore + 1
                 }
             })
             alert('P Wins')
@@ -72,7 +73,7 @@ class RPS extends Component {
             })
             alert('P Wins')
         }
-        
+
     }
 
     getCompChoice = () => {
@@ -81,18 +82,24 @@ class RPS extends Component {
 
         return choices[randomNumber];
     }
-    
 
-    render () {
+
+    render() {
         let { playerScore, compScore } = this.state
         return (
-            <div>
-                <span> {playerScore} </span>
-                <span> {compScore} </span>
+            <div className='Main'>
+                <div className='FullContainer'>
+                    <div className='ScoreCard'>
+                        <span className='pScore'> {playerScore} </span>
+                        <span className='cScore'> {compScore} </span>
+                    </div>
 
-                <button onClick={() => this.game('r')} > Rock </button>
-                <button onClick={() => this.game('p')}> Paper </button>
-                <button onClick={() => this.game('s')} > Scissor </button>
+                    <div className='BtnContainer'>
+                        <button onClick={() => this.game('r')} id='rockBtn' > Rock </button>
+                        <button onClick={() => this.game('p')} id='paperBtn' > Paper </button>
+                        <button onClick={() => this.game('s')} id='scissorBtn' > Scissor </button>
+                    </div>
+                </div>
             </div>
         )
     }
